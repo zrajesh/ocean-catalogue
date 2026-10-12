@@ -1,8 +1,10 @@
 import { COLLECTIONS } from "../content";
+import { PdfPreloader } from "./PdfPreloader";
 
 export function Collections() {
   return (
     <section id="products">
+      <PdfPreloader targetId="products" />
       <div className="wrap">
         <div className="head">
           <h2>Browse by collection</h2>
