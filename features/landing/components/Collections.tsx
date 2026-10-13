@@ -1,4 +1,6 @@
-import { COLLECTIONS } from "../content";
+import Link from "next/link";
+import { CategoryCard } from "@/features/catalogue/components/CategoryCard";
+import { CATEGORIES } from "@/features/catalogue/data/categories";
 import { PdfPreloader } from "./PdfPreloader";
 
 export function Collections() {
@@ -7,27 +9,21 @@ export function Collections() {
       <PdfPreloader targetId="products" />
       <div className="wrap">
         <div className="head">
-          <h2>Browse by collection</h2>
-          <p>Open any collection as a PDF with sizes, capacities and bulk prices.</p>
+          <h2>Browse by category</h2>
+          <p>Every size, capacity and packing detail, ready to enquire on.</p>
         </div>
-        <div className="grid4">
-          {COLLECTIONS.map(({ icon, viewBox, title, blurb, pdf }) => (
-            <div className="cat" key={icon}>
-              <div className="art">
-                <svg viewBox={viewBox} aria-hidden="true">
-                  <use href={`#${icon}`} />
-                </svg>
-              </div>
-              <div className="body">
-                <h3>{title}</h3>
-                <p>{blurb}</p>
-                <a className="pdf" href={pdf}>
-                  <span>View PDF</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            </div>
+        <ul className="cc-grid">
+          {CATEGORIES.map((category) => (
+            <CategoryCard key={category.slug} category={category} />
           ))}
+        </ul>
+        <div className="cc-more">
+          <Link className="btn gold" href="/products">
+            Open the full catalogue
+          </Link>
+          <Link className="pdf" href="/catalogue">
+            View as PDF
+          </Link>
         </div>
       </div>
     </section>

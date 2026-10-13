@@ -1,4 +1,5 @@
-import { CATALOGUE_VIEW_URL, HERO_FACTS, waLink } from "../content";
+import Link from "next/link";
+import { HERO_FACTS, waLink } from "../content";
 
 export function Hero() {
   return (
@@ -11,9 +12,9 @@ export function Hero() {
             branding available on request.
           </p>
           <div className="cta">
-            <a className="btn gold" href={CATALOGUE_VIEW_URL}>
-              View catalogue
-            </a>
+            <Link className="btn gold" href="/products">
+              Browse the catalogue
+            </Link>
             <a className="btn line" href={waLink("Hi, I want glassware pricing")}>
               Chat on WhatsApp
             </a>
